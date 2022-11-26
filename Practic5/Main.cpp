@@ -18,10 +18,12 @@ int main() {
 	show_book(NorwegianForest);
 	std::cout << "Книга 3 :\n";
 	show_book(NewWorld);
-	std::cout<<"Фамилия автора -> "<<auther_name(Idiot);
+	std::cout<<"Фамилия автора -> "<<author_name(Idiot)<<'\n';
 	std::string path;
 	path = "book.txt";
 	save_book(NorwegianForest, path);
 	add_book(massBook, size);
+	show_book(massBook[3]);
+	clear_arr(massBook, size);
 	return 0;
 }

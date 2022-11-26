@@ -11,7 +11,9 @@ struct Book {
 };
 
 void show_book(Book& book);
-std::string auther_name(Book& book);
-void save_book(Book book, std::string path);
-void add_book(Book* mass, int length);
+inline std::string author_name(Book& book) {
+	return book.NameAuthor.substr(book.NameAuthor.rfind(' ') + 1);
+}
+void save_book(Book& book, std::string path);
+void add_book(Book*& mass,const int length);
 void clear_arr(Book* mass, int length);

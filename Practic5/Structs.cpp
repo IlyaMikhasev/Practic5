@@ -2,17 +2,14 @@
 #include <string>
 #include "Structs.h"
 #include <fstream>
-void show_book(Book book) {
+void show_book(Book& book) {
 	std::cout << "Название книги : " <<book.name_book << '\n';
 	std::cout << "Фамилия автора : " << book.NameAuthor << '\n';
 	std::cout << "Год публикации : " << book.year_publ << '\n';
 	std::cout << "Количество страниц : " << book.score_page << '\n';
 	std::cout << "Цена экземпляра : " << book.price << "\n\n";
 }
-std::string auther_name(Book& book) {
-	return book.NameAuthor.substr(book.NameAuthor.rfind(' ') + 1);
-}
-void save_book(Book book, std::string path) {
+void save_book(Book& book, std::string path) {
 	std::ofstream out;
 	out.open(path, std::ios::app);
 	if (out.is_open()) {
@@ -27,13 +24,13 @@ void save_book(Book book, std::string path) {
 	else
 		out.close();
 }
-void add_book(Book* mass, int length) {
-	Book* mass1 = new Book[length + 1]{};
+
+void add_book(Book*& mass,const int length) {
+	Book* tmp = new Book[length + 1]{};
 	for (int i = 0; i < length; i++)
-		mass1[i] = mass[i];
+		tmp[i] = mass[i];
 	delete[]mass;
-	mass = mass1;
-	std::cin.ignore();
+	mass = tmp;
 	std::cout << "Введите имя книги -> ";
 	getline(std::cin, mass[length].name_book);
 	std::cout << "Введите Фамилию и имя автора -> ";
