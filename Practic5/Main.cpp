@@ -18,7 +18,7 @@ int main() {
 	show_book(NorwegianForest);
 	std::cout << "Книга 3 :\n";
 	show_book(NewWorld);
-	std::cout<<"Фамилия автора -> "<<author_name(Idiot)<<'\n';
+	std::cout<<"Имя автора -> "<<author_name(Idiot)<<'\n';
 	std::string path;
 	path = "book.txt";
 	save_book(NorwegianForest, path);
