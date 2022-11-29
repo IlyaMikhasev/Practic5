@@ -57,7 +57,7 @@ int main() {
 				if (num > size)
 					std::cout << "Такой книги нет!\n";
 				else
-					std::cout << "Имя автора -> " << author_name(massBook[num]) << '\n'; break;
+					std::cout << "Имя автора -> " << author_name(massBook[num-1]) << '\n'; break;
 			default: break;
 			}break;
 		case 3:add_book(massBook, size++); break;
@@ -75,7 +75,7 @@ int main() {
 				if (num > size)
 					std::cout << "Такой книги нет!\n";
 				else
-					save_book(massBook[num], path); break;
+					save_book(massBook[num-1], path); break;
 			default: break;
 			}break;
 		case 5:clear_arr(massBook, size); break;
