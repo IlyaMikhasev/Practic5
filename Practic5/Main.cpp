@@ -23,6 +23,7 @@ int main() {
 		std::cout << "4.Сохранить книгу в файл\n";
 		std::cout << "5.Очистить массив\n";
 		std::cout << "6.Завершение работы\n";
+		std::cout << "Введите номер -> \n";
 		std::cin >> num;
 		std::cin.ignore();
 		switch (num) {
@@ -33,7 +34,13 @@ int main() {
 			case 1:show_book(Idiot); break;
 			case 2:show_book(NorwegianForest); break;
 			case 3:show_book(NewWorld); break;
-			case 4:show_book(massBook[3]); break;
+			case 4:std::cout << "Введите номер книги -> ";
+				std::cin >> num;
+				std::cin.ignore();
+				if (num > size )
+					std::cout << "Такой книги нет!\n";
+				else
+					show_book(massBook[num-1]); break;
 			default: break;
 			}break;
 		case 2:
@@ -47,7 +54,7 @@ int main() {
 			case 4:std::cout << "Имя автора -> " << author_name(massBook[3]) << '\n'; break;
 			default: break;
 			}break;
-		case 3:add_book(massBook, size); break;
+		case 3:add_book(massBook, size++); break;
 		case 4:
 			std::cout << "Выберите книгу:\n1 - Идиот\n2 - норвежский лес\n3 - о дивный новый мир \n4 - Добавленная книга\n";
 			std::cin >> num;
