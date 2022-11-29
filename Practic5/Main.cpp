@@ -51,7 +51,13 @@ int main() {
 			case 1:std::cout << "Имя автора -> " << author_name(Idiot) << '\n'; break;
 			case 2:std::cout << "Имя автора -> " << author_name(NorwegianForest) << '\n'; break;
 			case 3:std::cout << "Имя автора -> " << author_name(NewWorld) << '\n'; break;
-			case 4:std::cout << "Имя автора -> " << author_name(massBook[3]) << '\n'; break;
+			case 4:std::cout << "Введите номер книги -> ";
+				std::cin >> num;
+				std::cin.ignore();
+				if (num > size)
+					std::cout << "Такой книги нет!\n";
+				else
+					std::cout << "Имя автора -> " << author_name(massBook[num]) << '\n'; break;
 			default: break;
 			}break;
 		case 3:add_book(massBook, size++); break;
@@ -63,7 +69,13 @@ int main() {
 			case 1:save_book(Idiot, path); break;
 			case 2:save_book(NorwegianForest, path); break;
 			case 3:save_book(NewWorld, path); break;
-			case 4:save_book(massBook[3], path); break;
+			case 4:std::cout << "Введите номер книги -> ";
+				std::cin >> num;
+				std::cin.ignore();
+				if (num > size)
+					std::cout << "Такой книги нет!\n";
+				else
+					save_book(massBook[num], path); break;
 			default: break;
 			}break;
 		case 5:clear_arr(massBook, size); break;
